@@ -4,24 +4,22 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
-import java.sql.Time;
-import java.util.List;
 import java.util.UUID;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@Entity()
-public class DailyTrip {
+@Entity
+@Table(name = "bus_distribution")
+public class BusDistribution {
 
     @Id
     @GeneratedValue
-    private UUID iD;
-    private UUID routeId;
-    private Time time;
+    private int id;
 
-
+    private String busNumber;
+    private UUID tripId;
+    private boolean isWeeklyTrip;
+    private boolean isTripWeekely;
 }

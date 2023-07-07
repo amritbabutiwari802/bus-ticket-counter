@@ -8,8 +8,6 @@ import lombok.ToString;
 
 import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,8 +16,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @ToString
 @Entity
-public class BusReservation {
-
+public class BusReservationHistory {
     @Id
     @GeneratedValue
     private UUID id;

@@ -1,27 +1,20 @@
-package com.amritbabu.busticketcounter.entities;
+package com.amritbabu.busticketcounter.dto;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.sql.Time;
-import java.util.List;
 import java.util.UUID;
 
+
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-@Entity()
-public class DailyTrip {
-
-    @Id
-    @GeneratedValue
-    private UUID iD;
+public class CreateWeekelyTripDto {
     private UUID routeId;
+    private int day;
     private Time time;
-
-
 }

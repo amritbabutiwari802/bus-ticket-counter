@@ -1,8 +1,6 @@
 package com.amritbabu.busticketcounter.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,6 +35,17 @@ public class Route {
 
     private BusStation endingStation;
 
+    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
     private List<BusStation> passingBusStations = new ArrayList<>();
 
+    public Route(String name, String startingProvince, String startingDistrict, String endingProvince, String endingDistrict, BusStation originationStation, BusStation endingStation, List<BusStation> passingBusStations) {
+        this.name = name;
+        this.startingProvince = startingProvince;
+        this.startingDistrict = startingDistrict;
+        this.endingProvince = endingProvince;
+        this.endingDistrict = endingDistrict;
+        this.originationStation = originationStation;
+        this.endingStation = endingStation;
+        this.passingBusStations = passingBusStations;
+    }
 }

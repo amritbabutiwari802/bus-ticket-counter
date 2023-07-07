@@ -1,6 +1,6 @@
 package com.amritbabu.busticketcounter.entities;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,11 +16,13 @@ import java.util.UUID;
 @Entity
 public class Ticket {
 
+    @Id
+    @GeneratedValue
     private UUID id;
     private String passengerName;
-    private UUID reservationID;
-    private UUID tripId;
-    private String busNumber;
+
+    @OneToOne(cascade = { CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH })
+    private BusReservation busReservation;
     private String seatCode;
     private BusStation departureStation;
     private BusStation destinationStation;

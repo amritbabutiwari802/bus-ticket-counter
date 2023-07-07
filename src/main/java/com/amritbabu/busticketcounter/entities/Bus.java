@@ -1,7 +1,6 @@
 package com.amritbabu.busticketcounter.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,5 +18,9 @@ public class Bus {
 
     @Id
     private String busNumber;
+
+    @ElementCollection
+    @CollectionTable(name = "bus_seat_codes")
+    @Column(name = "seat_codes")
     private List<String> seatCodes = new ArrayList<>();
 }
